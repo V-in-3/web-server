@@ -1,20 +1,8 @@
-console.log('JS script is loaded')
-
 // fetch('https://puzzle.mead.io/puzzle').then((response)=> {
 //     response.json().then((data) => {
 //         console.log(data)
 //     })
 // })
-
-// fetch('http://api.weatherstack.com/current?access_key=6a55d93ed908eee6eba6374729740ba3&query=Bor22323d23ddeaux').then((response)=>{
-//     response.json().then((data)=>{
-//         console.log(data)
-//     })
-// }).catch((error) => {
-//     console.log(error.info)
-// })
-
-
 
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
