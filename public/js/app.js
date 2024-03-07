@@ -1,0 +1,43 @@
+console.log('JS script is loaded')
+
+// fetch('https://puzzle.mead.io/puzzle').then((response)=> {
+//     response.json().then((data) => {
+//         console.log(data)
+//     })
+// })
+
+// fetch('http://api.weatherstack.com/current?access_key=6a55d93ed908eee6eba6374729740ba3&query=Bor22323d23ddeaux').then((response)=>{
+//     response.json().then((data)=>{
+//         console.log(data)
+//     })
+// }).catch((error) => {
+//     console.log(error.info)
+// })
+
+
+
+const weatherForm = document.querySelector('form')
+const search = document.querySelector('input')
+const messageOne = document.querySelector('#message-1')
+const messageSecond = document.querySelector('#message-2')
+
+weatherForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const location = search.value
+
+    messageOne.textContent = ''
+    messageSecond.textContent = 'Loading...'
+            
+
+    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+        response.json().then((data) => {
+            if (data.error) {
+                console.log(data.error)
+            } else {
+                console.log(data)
+                messageOne.textContent = data.location
+                messageSecond.textContent = data.forecast
+            }
+        })
+    })
+})
